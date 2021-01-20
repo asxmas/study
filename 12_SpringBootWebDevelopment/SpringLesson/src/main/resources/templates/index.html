@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<form method="POST" enctype="multipart/form-data"
+      action="/upload">
+    File to upload: <input type="file" name="file"><br /> Name: <input
+        type="text" name="name"><br /> <br /> <input type="submit"
+                                                     value="Upload"> Press here to upload the file!
+</form>
+</div>
+<h1>Список файлов (<span th:text="${filesCount}">0</span>)</h1>
+<br><br>
+<div id="files-list">
+    <div th:each="file : ${files}">
+        <a href="#" class="file-link" th:attr="data-id=${file.id}" th:text="${file.name}"></a>
+    </div>
+</div>
+</html>
